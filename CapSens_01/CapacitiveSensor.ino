@@ -3,7 +3,7 @@
 unsigned long  leastTotal = 0x0FFFFFFFL;   // input large value for autocalibrate begin
 unsigned int   loopTimingFactor = 310;   // determined empirically -  a hack
 unsigned long  CS_Timeout_Millis = (2000 * (float)loopTimingFactor * (float)F_CPU) / 16000000;
-unsigned long  CS_AutocaL_Millis = 20000;
+unsigned long  CS_AutocaL_Millis = 3000;
 unsigned long  lastCal = millis();         // set millis for start
 unsigned long  total;
 
@@ -14,7 +14,11 @@ long readCap(byte RefPin, byte SensePin, unsigned int samples)
 {
 	total = 0;
 	if (samples == 0) return 0;
-        pinMode(RefPin, OUTPUT); //set RefPin as Output
+        pinMode(RefPin, OUTPUT); //set RefPin as Output	
+        pinMode(SensePin, OUTPUT);	
+        digitalWrite(SensePin, LOW);	// SensePin LOW
+        digitalWrite(RefPin, LOW);	// RefPin LOW
+        delayMicroseconds(30);
 
 	for (unsigned int i = 0; i < samples; i++) {    // loop for samples parameter - simple lowpass filter
 		if (SenseOneCycle() < 0)  return -2;   // variable over timeout
@@ -86,10 +90,10 @@ int SenseOneCycle(void)
 {
     noInterrupts();
 	digitalWrite(RefPin, LOW);	// RefPin low
-	//pinMode(SensePin, INPUT);	// SensePin to input (pullups are off)
+	pinMode(SensePin, INPUT);	// SensePin to input (pullups are off)
 	pinMode(SensePin, OUTPUT);      // SensePin to OUTPUT
 	digitalWrite(SensePin, LOW);	// pin is now LOW AND OUTPUT
-	delayMicroseconds(10);
+	delayMicroseconds(30);
 	pinMode(SensePin, INPUT);	// SensePin to input (pullups are off)
 	digitalWrite(RefPin, HIGH);	// RefPin High
     interrupts();
@@ -118,7 +122,8 @@ int SenseOneCycle(void)
 	}
 	//Serial.print("SenseOneCycle(2): ");
 	//Serial.println(total);
-
+        
+        
 	if (total >= CS_Timeout_Millis) {
 		return -2;     // total variable over timeout
 	} else {

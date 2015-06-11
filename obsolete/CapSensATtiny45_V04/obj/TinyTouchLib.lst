@@ -1,0 +1,318 @@
+   1               		.file	"TinyTouchLib.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.tinytouch_adc,"ax",@progbits
+  17               	.global	tinytouch_adc
+  19               	tinytouch_adc:
+  20               	.LFB8:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 81E0      		ldi r24,lo8(1)
+  26 0002 87B9      		out 39-32,r24
+  27               	.LSM2:
+  28 0004 C29A      		sbi 56-32,2
+  29               	.LSM3:
+  30 0006 C498      		cbi 56-32,4
+  31               	.LSM4:
+  32 0008 87B3      		in r24,55-32
+  33 000a 8461      		ori r24,lo8(20)
+  34 000c 87BB      		out 55-32,r24
+  35               	.LBB44:
+  36               	.LBB45:
+  37               	.LBB46:
+  38               	.LBB47:
+  39               	.LSM5:
+  40 000e 85E5      		ldi r24,lo8(85)
+  41               	.LVL0:
+  42               	/* #APP */
+  43               	 ;  83 "c:/program files/winavr/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  44 0010 8A95      		1: dec r24
+  45 0012 01F4      		brne 1b
+  46               	 ;  0 "" 2
+  47               	/* #NOAPP */
+  48               	.LBE47:
+  49               	.LBE46:
+  50               	.LBE45:
+  51               	.LBE44:
+  52               	.LSM6:
+  53 0014 BC98      		cbi 55-32,4
+  54               	.LSM7:
+  55 0016 82E2      		ldi r24,lo8(34)
+  56               	.LVL1:
+  57 0018 87B9      		out 39-32,r24
+  58               	.LSM8:
+  59 001a 369A      		sbi 38-32,6
+  60               	.L2:
+  61               	.LSM9:
+  62 001c 349B      		sbis 38-32,4
+  63 001e 00C0      		rjmp .L2
+  64               	.LSM10:
+  65 0020 349A      		sbi 38-32,4
+  66               	.LSM11:
+  67 0022 95B1      		in r25,37-32
+  68               	.LVL2:
+  69               	.LSM12:
+  70 0024 81E0      		ldi r24,lo8(1)
+  71 0026 87B9      		out 39-32,r24
+  72               	.LSM13:
+  73 0028 C298      		cbi 56-32,2
+  74               	.LSM14:
+  75 002a C49A      		sbi 56-32,4
+  76               	.LSM15:
+  77 002c 87B3      		in r24,55-32
+  78 002e 8461      		ori r24,lo8(20)
+  79 0030 87BB      		out 55-32,r24
+  80               	.LBB48:
+  81               	.LBB49:
+  82               	.LBB50:
+  83               	.LBB51:
+  84               	.LSM16:
+  85 0032 85E5      		ldi r24,lo8(85)
+  86               	.LVL3:
+  87               	/* #APP */
+  88               	 ;  83 "c:/program files/winavr/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  89 0034 8A95      		1: dec r24
+  90 0036 01F4      		brne 1b
+  91               	 ;  0 "" 2
+  92               	/* #NOAPP */
+  93               	.LBE51:
+  94               	.LBE50:
+  95               	.LBE49:
+  96               	.LBE48:
+  97               	.LSM17:
+  98 0038 BC98      		cbi 55-32,4
+  99               	.LSM18:
+ 100 003a C498      		cbi 56-32,4
+ 101               	.LSM19:
+ 102 003c 82E2      		ldi r24,lo8(34)
+ 103               	.LVL4:
+ 104 003e 87B9      		out 39-32,r24
+ 105               	.LSM20:
+ 106 0040 369A      		sbi 38-32,6
+ 107               	.L3:
+ 108               	.LSM21:
+ 109 0042 349B      		sbis 38-32,4
+ 110 0044 00C0      		rjmp .L3
+ 111               	.LSM22:
+ 112 0046 349A      		sbi 38-32,4
+ 113               	.LSM23:
+ 114 0048 85B1      		in r24,37-32
+ 115               	.LVL5:
+ 116               	.LSM24:
+ 117 004a 891B      		sub r24,r25
+ 118               	.LVL6:
+ 119               	/* epilogue start */
+ 120 004c 0895      		ret
+ 121               	.LFE8:
+ 123               		.section	.text.tinytouch_sense,"ax",@progbits
+ 124               	.global	tinytouch_sense
+ 126               	tinytouch_sense:
+ 127               	.LFB7:
+ 128               	.LSM25:
+ 129 0000 EF92      		push r14
+ 130 0002 FF92      		push r15
+ 131 0004 1F93      		push r17
+ 132 0006 CF93      		push r28
+ 133 0008 DF93      		push r29
+ 134               	/* prologue: function */
+ 135               	/* frame size = 0 */
+ 136               	.LSM26:
+ 137 000a 10E0      		ldi r17,lo8(0)
+ 138               	.LVL7:
+ 139 000c C0E0      		ldi r28,lo8(0)
+ 140 000e D0E0      		ldi r29,hi8(0)
+ 141               	.LVL8:
+ 142               	.LBB52:
+ 143               	.LBB53:
+ 144               	.LBB54:
+ 145               	.LBB55:
+ 146               	.LBB56:
+ 147               	.LBB57:
+ 148               	.LSM27:
+ 149 0010 68EC      		ldi r22,lo8(200)
+ 150 0012 E62E      		mov r14,r22
+ 151 0014 F12C      		mov r15,__zero_reg__
+ 152               	.L8:
+ 153               	.LBE57:
+ 154               	.LBE56:
+ 155               	.LBE55:
+ 156               	.LBE54:
+ 157               	.LBE53:
+ 158               	.LBE52:
+ 159               	.LSM28:
+ 160 0016 00D0      		rcall tinytouch_adc
+ 161 0018 C80F      		add r28,r24
+ 162 001a D11D      		adc r29,__zero_reg__
+ 163               	.LBB63:
+ 164               	.LBB62:
+ 165               	.LBB61:
+ 166               	.LBB60:
+ 167               	.LBB59:
+ 168               	.LBB58:
+ 169               	.LSM29:
+ 170 001c C701      		movw r24,r14
+ 171               	.LVL9:
+ 172               	/* #APP */
+ 173               	 ;  105 "c:/program files/winavr/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 174 001e 0197      		1: sbiw r24,1
+ 175 0020 01F4      		brne 1b
+ 176               	 ;  0 "" 2
+ 177               	/* #NOAPP */
+ 178               	.LBE58:
+ 179               	.LBE59:
+ 180               	.LBE60:
+ 181               	.LBE61:
+ 182               	.LBE62:
+ 183               	.LBE63:
+ 184               	.LSM30:
+ 185 0022 1F5F      		subi r17,lo8(-(1))
+ 186 0024 1031      		cpi r17,lo8(16)
+ 187 0026 01F4      		brne .L8
+ 188               	.LSM31:
+ 189 0028 2091 0000 		lds r18,bias
+ 190 002c 3091 0000 		lds r19,(bias)+1
+ 191 0030 C901      		movw r24,r18
+ 192               	.LVL10:
+ 193 0032 54E0      		ldi r21,4
+ 194 0034 9695      	1:	lsr r25
+ 195 0036 8795      		ror r24
+ 196 0038 5A95      		dec r21
+ 197 003a 01F4      		brne 1b
+ 198 003c AE01      		movw r20,r28
+ 199               	.LVL11:
+ 200 003e 481B      		sub r20,r24
+ 201 0040 590B      		sbc r21,r25
+ 202               	.LSM32:
+ 203 0042 8091 0000 		lds r24,touch
+ 204 0046 8823      		tst r24
+ 205 0048 01F4      		brne .L9
+ 206               	.LSM33:
+ 207 004a 4B30      		cpi r20,11
+ 208 004c 5105      		cpc r21,__zero_reg__
+ 209 004e 04F0      		brlt .L10
+ 210               	.LSM34:
+ 211 0050 81E0      		ldi r24,lo8(1)
+ 212 0052 8093 0000 		sts touch,r24
+ 213               	.LSM35:
+ 214 0056 1092 0000 		sts timer,__zero_reg__
+ 215 005a 22E0      		ldi r18,lo8(2)
+ 216 005c 30E0      		ldi r19,hi8(2)
+ 217 005e 00C0      		rjmp .L11
+ 218               	.L10:
+ 219               	.LSM36:
+ 220 0060 C901      		movw r24,r18
+ 221 0062 46E0      		ldi r20,6
+ 222 0064 9695      	1:	lsr r25
+ 223 0066 8795      		ror r24
+ 224 0068 4A95      		dec r20
+ 225 006a 01F4      		brne 1b
+ 226               	.LVL12:
+ 227 006c 281B      		sub r18,r24
+ 228 006e 390B      		sbc r19,r25
+ 229 0070 D695      		lsr r29
+ 230 0072 C795      		ror r28
+ 231 0074 D695      		lsr r29
+ 232 0076 C795      		ror r28
+ 233 0078 2C0F      		add r18,r28
+ 234 007a 3D1F      		adc r19,r29
+ 235 007c 3093 0000 		sts (bias)+1,r19
+ 236 0080 2093 0000 		sts bias,r18
+ 237 0084 20E0      		ldi r18,lo8(0)
+ 238 0086 30E0      		ldi r19,hi8(0)
+ 239 0088 00C0      		rjmp .L11
+ 240               	.LVL13:
+ 241               	.L9:
+ 242               	.LSM37:
+ 243 008a 4830      		cpi r20,8
+ 244 008c 5105      		cpc r21,__zero_reg__
+ 245 008e 04F4      		brge .L12
+ 246               	.LSM38:
+ 247 0090 1092 0000 		sts touch,__zero_reg__
+ 248 0094 23E0      		ldi r18,lo8(3)
+ 249 0096 30E0      		ldi r19,hi8(3)
+ 250 0098 00C0      		rjmp .L11
+ 251               	.L12:
+ 252               	.LSM39:
+ 253 009a 8091 0000 		lds r24,timer
+ 254 009e 8530      		cpi r24,lo8(5)
+ 255 00a0 00F0      		brlo .L13
+ 256               	.LSM40:
+ 257 00a2 00D0      		rcall tinytouch_adc
+ 258               	.LVL14:
+ 259 00a4 1092 0000 		sts bias,__zero_reg__
+ 260 00a8 8093 0000 		sts bias+1,r24
+ 261 00ac 24E0      		ldi r18,lo8(4)
+ 262 00ae 30E0      		ldi r19,hi8(4)
+ 263 00b0 00C0      		rjmp .L11
+ 264               	.LVL15:
+ 265               	.L13:
+ 266               	.LSM41:
+ 267 00b2 8F5F      		subi r24,lo8(-(1))
+ 268 00b4 8093 0000 		sts timer,r24
+ 269 00b8 21E0      		ldi r18,lo8(1)
+ 270 00ba 30E0      		ldi r19,hi8(1)
+ 271               	.L11:
+ 272               	.LSM42:
+ 273 00bc C901      		movw r24,r18
+ 274               	/* epilogue start */
+ 275 00be DF91      		pop r29
+ 276 00c0 CF91      		pop r28
+ 277               	.LVL16:
+ 278 00c2 1F91      		pop r17
+ 279               	.LVL17:
+ 280 00c4 FF90      		pop r15
+ 281 00c6 EF90      		pop r14
+ 282 00c8 0895      		ret
+ 283               	.LFE7:
+ 285               		.section	.text.tinytouch_init,"ax",@progbits
+ 286               	.global	tinytouch_init
+ 288               	tinytouch_init:
+ 289               	.LFB6:
+ 290               	.LSM43:
+ 291               	/* prologue: function */
+ 292               	/* frame size = 0 */
+ 293               	.LSM44:
+ 294 0000 80B5      		in r24,64-32
+ 295 0002 8E7F      		andi r24,lo8(-2)
+ 296 0004 80BD      		out 64-32,r24
+ 297               	.LSM45:
+ 298 0006 85E8      		ldi r24,lo8(-123)
+ 299 0008 86B9      		out 38-32,r24
+ 300               	.LSM46:
+ 301 000a 00D0      		rcall tinytouch_adc
+ 302 000c 1092 0000 		sts bias,__zero_reg__
+ 303 0010 8093 0000 		sts bias+1,r24
+ 304               	.LSM47:
+ 305 0014 1092 0000 		sts touch,__zero_reg__
+ 306               	/* epilogue start */
+ 307               	.LSM48:
+ 308 0018 0895      		ret
+ 309               	.LFE6:
+ 311               		.comm bias,2,1
+ 312               		.comm touch,1,1
+ 313               		.comm timer,1,1
+ 354               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 TinyTouchLib.c
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:2      *ABS*:0000003f __SREG__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:5      *ABS*:00000034 __CCP__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:19     .text.tinytouch_adc:00000000 tinytouch_adc
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:126    .text.tinytouch_sense:00000000 tinytouch_sense
+                            *COM*:00000002 bias
+                            *COM*:00000001 touch
+                            *COM*:00000001 timer
+C:\Users\Daniel\AppData\Local\Temp/ccfX0EZj.s:288    .text.tinytouch_init:00000000 tinytouch_init
+
+UNDEFINED SYMBOLS
+__do_clear_bss

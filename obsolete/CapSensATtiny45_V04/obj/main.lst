@@ -1,0 +1,52 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.main,"ax",@progbits
+  17               	.global	main
+  19               	main:
+  20               	.LFB6:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 80E8      		ldi r24,lo8(-128)
+  26 0002 86BD      		out 70-32,r24
+  27               	.LSM2:
+  28 0004 16BC      		out 70-32,__zero_reg__
+  29               	.LSM3:
+  30 0006 88E0      		ldi r24,lo8(8)
+  31 0008 87BB      		out 55-32,r24
+  32               	.LSM4:
+  33 000a 00D0      		rcall tinytouch_init
+  34               	.L5:
+  35               	.LSM5:
+  36 000c 00D0      		rcall tinytouch_sense
+  37               	.LSM6:
+  38 000e 8130      		cpi r24,lo8(1)
+  39 0010 01F4      		brne .L2
+  40 0012 C39A      		sbi 56-32,3
+  41 0014 00C0      		rjmp .L5
+  42               	.L2:
+  43               	.LSM7:
+  44 0016 C398      		cbi 56-32,3
+  45 0018 00C0      		rjmp .L5
+  46               	.LFE6:
+  72               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:2      *ABS*:0000003f __SREG__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:5      *ABS*:00000034 __CCP__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Daniel\AppData\Local\Temp/ccHb0p6a.s:19     .text.main:00000000 main
+
+UNDEFINED SYMBOLS
+tinytouch_init
+tinytouch_sense
