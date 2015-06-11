@@ -2,7 +2,7 @@
 
 #include <RFduinoBLE.h>
 #include <Wire.h>
-#include "QTouchI2C.h"
+#include <Seeed_QTouch.h>
 
 // Pin for the LED
 int RLEDPin = 6;
@@ -11,7 +11,8 @@ int BLEDPin = 4;
 
 // I2C-Bus on Pins 2 & 3!
 
-//int vibro = 1;
+int wav0 = 1;
+int wav1 = 0;
 
 
 
@@ -26,7 +27,7 @@ int timer0 = millis();
 
 void setup(){
   //Serial.begin(9600);  //for debugging
-  
+  //Serial.println("Start");
   Wire.beginOnPins(3, 2);  // SCL on GPIO 3 and SDA on GPIO 2
   
   // Set up the RGB-LED - all on - white color
@@ -37,7 +38,10 @@ void setup(){
   pinMode(BLEDPin, OUTPUT);
   analogWrite(BLEDPin, 220);
   
-  //pinMode(vibro, OUTPUT);
+  pinMode(wav0, OUTPUT); 
+  digitalWrite(wav0, HIGH);
+  pinMode(wav1, OUTPUT);
+  digitalWrite(wav1, HIGH);
   
   // configure the RFduino BLE properties
   RFduinoBLE.advertisementData = "test";
@@ -93,12 +97,12 @@ void loop(){
    btdata[3] =  (QTouch.readReg(13));  //LSB value of key1
     delay(8);
    
-   /*
+   
    Serial.print("Key 4 reads: ");
-   Serial.println((int)(value1));
+   Serial.println((int)(btdata[3]));
    Serial.print("Status reads: ");
-   Serial.println(stat, HEX);
-   */
+   Serial.println(btdata[1], HEX);
+   
     
     if (0x10&btdata[1]){      //if Head-Sensor is touched
        if (millis()-timer0>100)
@@ -106,6 +110,7 @@ void loop(){
          btdata[0]++;
          if (btdata[0] == 8) btdata[0] = 0;
          RGBchange(btdata[0]);
+         sound(1);
        }
  
       timer0=millis();
@@ -121,6 +126,40 @@ void loop(){
   BTsendstatus();
   delay(5);
 }
+
+void sound (byte nr){
+    
+    unsigned int STimer;
+    
+    if (nr>3) nr -= 3; 
+    
+    //Serial.println(nr);
+    
+    if (nr == 1) {
+      STimer=millis();
+      digitalWrite(wav0,LOW); 
+      while ( (millis() - STimer) < 60);
+      digitalWrite(wav0,HIGH);
+    }
+    
+    if (nr == 2) {
+      STimer=millis();
+      digitalWrite(wav1,LOW); 
+      while ( (millis() - STimer) < 60);
+      digitalWrite(wav1,HIGH);
+    
+    }
+    
+    if (nr == 3) {
+      STimer=millis();
+      digitalWrite(wav0,LOW); 
+      digitalWrite(wav1,LOW); 
+      while ( (millis() - STimer) < 60);
+      digitalWrite(wav0,HIGH);
+      digitalWrite(wav1,HIGH);
+    
+    }
+} 
 
 /*
 void vibrate(char mil){
