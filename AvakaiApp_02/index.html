@@ -50,7 +50,7 @@ This is the Avakai Remote-App for Smartphones
 	
 	<div class="avakai-wrapper">
     <div class="avakai-light bg_green"></div>
-    <div class="avakai-figure"></div></div>
+    <div class="avakai-figure"></div>
 	</div>
 
 	<h1>Avakai DEMO</h1>
@@ -139,6 +139,7 @@ This is the Avakai Remote-App for Smartphones
 	
 	//Holds the status of the RGB-LED
 	var senddata = new Uint8Array(3);
+	senddata[1]=1;
 	
 	//Holds the data received from Avakai via bluetooth
 	//btdata[0] stores status of RGB-LED
