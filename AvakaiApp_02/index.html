@@ -50,7 +50,7 @@ This is the Avakai Remote-App for Smartphones
 	
 	<div class="avakai-wrapper">
     <div class="avakai-light bg_green"></div>
-    <div class="avakai-figure"></div>
+    <div class="avakai-figure" onclick="app.sendkey()"></div>
 	</div>
 
 	<h1>Avakai DEMO</h1>
@@ -230,7 +230,7 @@ This is the Avakai Remote-App for Smartphones
 	
 	// display the feedback on the figure when tapping
 	app.avakaiTapFeedback = function() {
-		$('.avakai-light').show(1).delay(100).fadeOut(30);
+		$('.avakai-light').show().fadeOut(200);
 	}
 	
 	app.showMessage = function(info)
@@ -410,11 +410,12 @@ This is the Avakai Remote-App for Smartphones
 			app.debugMessage("data0: " + btdata[0] + "<br> data1: " + btdata[1] + "<br> data2: " + btdata[2] + "<br> data3: " + btdata[3] + "<br> data4: " + btdata[4] + "<br> data5: " + btdata[5] + "<br> data6: " + btdata[6] + "<br> data7: " + btdata[7]); 
     }       
 	
+	/*
 	$('body').on('touchstart', '.avakai-figure', function(e){
 
         app.sendkey();
     });
-
+	*/
 
 
 	// When the app is fully loaded the "deviceready" event is triggered.
