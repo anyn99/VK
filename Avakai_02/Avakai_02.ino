@@ -16,27 +16,31 @@ int wav1 = 0;
 
 
 
-
 char btdata[8];
 //btdata[0] = State of RGB-LED
 //btdata[1] = State of Sensors, first bit = Head Sensor
+//btdata[2] = MSB sensor value
+//btdata[3] = LSB sensor value
+
+//btdata[5] = Sound to play
+//btdata[6] = command from app
 
 int timer0 = millis();
-
+int timer1 = millis();
 
 
 void setup(){
   //Serial.begin(9600);  //for debugging
-  //Serial.println("Start");
+  Serial.println("Start");
+  
   Wire.beginOnPins(3, 2);  // SCL on GPIO 3 and SDA on GPIO 2
   
   // Set up the RGB-LED - all on - white color
   pinMode(RLEDPin, OUTPUT);
-  analogWrite(RLEDPin, 220);
   pinMode(GLEDPin, OUTPUT);
-  analogWrite(GLEDPin, 220);
   pinMode(BLEDPin, OUTPUT);
-  analogWrite(BLEDPin, 220);
+  btdata[0]=7;
+  RGBchange(btdata[7]);
   
   pinMode(wav0, OUTPUT); 
   digitalWrite(wav0, HIGH);
@@ -64,11 +68,14 @@ void setup(){
   QTouch.writeReg(37, 255); //key5 big threshold
   delay(8);
   
+  QTouch.writeReg(50, 8); //set detection integrator for key4
+  delay(8);
+  
   //QTouch.setAKSForKey(0,1); //removes key1 from AKS-groups
   //delay(8);
   
   //Averaging Factors, 0 to turn channel off
-  QTouch.writeReg(39, 0); //key0
+  QTouch.writeReg(39, 8); //key0
   delay(8);
   QTouch.writeReg(40, 0); //key1
   delay(8);
@@ -83,6 +90,7 @@ void setup(){
   QTouch.writeReg(45, 0); //key6
   delay(8);
   
+  btdata[5]=1;
   
 }
 
@@ -97,24 +105,38 @@ void loop(){
    btdata[3] =  (QTouch.readReg(13));  //LSB value of key1
     delay(8);
    
-   
+   /*
    Serial.print("Key 4 reads: ");
    Serial.println((int)(btdata[3]));
    Serial.print("Status reads: ");
    Serial.println(btdata[1], HEX);
-   
+   */
     
     if (0x10&btdata[1]){      //if Head-Sensor is touched
-       if (millis()-timer0>100)
-       {
-         btdata[0]++;
-         if (btdata[0] == 8) btdata[0] = 0;
+       
+       if (millis()-timer0>50)
+       {  
+         sound(btdata[5]);
          RGBchange(btdata[0]);
-         sound(1);
+         delay(300);
+         RGBchange(0);
+       }
+       
+       if (millis()-timer1>1500)
+       {
+          btdata[0]++;
+          if (btdata[0] == 8) btdata[0] = 1;
+          sound(btdata[5]);
+          RGBchange(btdata[0]);
+          delay(300);
+          RGBchange(0);
+          timer1=millis();
        }
  
       timer0=millis();
     }
+    else  timer1= millis();
+ 
   
   /*
   if (0x02&stat){    
@@ -161,6 +183,7 @@ void sound (byte nr){
     }
 } 
 
+
 /*
 void vibrate(char mil){
   int timer = millis();
@@ -176,10 +199,26 @@ void BTsendstatus(){
 
 void RFduinoBLE_onReceive(char *data, int len)
 {
-	
-	RGBchange(data[0]);
-        btdata[0] = data[0]; //store RGBstate
-       
+
+        btdata[0] = data[0]; //store color value
+        btdata[5] = data[1]; //store sound value
+        btdata[6] = data[2]; //store command
+        
+        if (btdata[6]==1){
+        sound(btdata[5]);
+        RGBchange(btdata[0]);
+        delay(300);
+        RGBchange(0);
+        }
+        
+        
+        /*
+        Serial.print("data[0]: ");
+        Serial.println(data[0],HEX);
+        Serial.print("data[1]: ");
+        Serial.println(data[1],HEX);
+        */
+        
 	BTsendstatus();
 }
 

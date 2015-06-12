@@ -1,6 +1,4 @@
 
-
-
 void RGBchange(byte state){
     
   byte calc = state;
