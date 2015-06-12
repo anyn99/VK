@@ -13,6 +13,7 @@ This is the Avakai Remote-App for Smartphones
 
 	<style>
 		@import 'ui/css/evothings-app.css';
+    @import 'ui/css/avakai.css';
 	</style>
 
 	<style>
@@ -46,6 +47,10 @@ This is the Avakai Remote-App for Smartphones
 			<img src="ui/images/arrow-left.svg" />
 		</button>
 	</header>
+  <div class="avakai-wrapper">
+    <div class="avakai-light bg_green"></div>
+    <div class="avakai-figure" onclick="app.ledGreen()"></div>
+  </div>
 
 	<h1>Avakai DEMO</h1>
 
@@ -135,6 +140,7 @@ This is the Avakai Remote-App for Smartphones
 	// Toggle green LED.
 	app.ledGreen = function()
 	{
+    app.avakaiTapFeedback();
 		app.color ^= 2;															//switch bit 2 with EXOR
 		app.device && app.device.writeDataArray(new Uint8Array([app.color]));  //send byte containing state of RGB-LED
 	};
@@ -152,6 +158,12 @@ This is the Avakai Remote-App for Smartphones
 		app.color = 0;															
 		app.device && app.device.writeDataArray(new Uint8Array([0]));			//send byte containing state of RGB-LED
 	};
+
+  // display the feedback on the figure when tapping
+  app.avakaiTapFeedback = function() {
+    $('.avakai-light').fadeOut(20).fadeIn(50);
+  }
+
 
 
 	app.showMessage = function(info)
