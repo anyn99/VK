@@ -13,7 +13,7 @@ This is the Avakai Remote-App for Smartphones
 
 	<style>
 		@import 'ui/css/evothings-app.css';
-    @import 'ui/css/avakai.css';
+		@import 'ui/css/avakai.css';
 	</style>
 
 	<style>
@@ -47,10 +47,11 @@ This is the Avakai Remote-App for Smartphones
 			<img src="ui/images/arrow-left.svg" />
 		</button>
 	</header>
-  <div class="avakai-wrapper">
+	
+	<div class="avakai-wrapper">
     <div class="avakai-light bg_green"></div>
-    <div class="avakai-figure" onclick="app.ledGreen()"></div>
-  </div>
+    <div class="avakai-figure" onclick="app.sendkey()"></div>
+	</div>
 
 	<h1>Avakai DEMO</h1>
 
@@ -66,6 +67,11 @@ This is the Avakai Remote-App for Smartphones
 
 	<br />
 	
+	<button type="button" class="white" onclick="app.sendkey()">
+		Send keypress
+	</button>
+	
+	<br />
 	<h2>Change LED-Color</h2>
 
 	<button type="button" class="red" onclick="app.ledRed()">
@@ -83,7 +89,25 @@ This is the Avakai Remote-App for Smartphones
 	<br />
 	
 	<button type="button" class="black" onclick="app.ledOff()">
-		All Leds Off + Message clean
+		All Leds Off
+	</button>
+	
+	<br />
+	
+	<button type="button" class="gray" onclick="app.sound1()">
+		Sound 1
+	</button>
+	
+	<button type="button" class="gray" onclick="app.sound2()">
+		Sound 2
+	</button>
+	
+	<button type="button" class="gray" onclick="app.sound3()">
+		Sound 3
+	</button>
+	
+	<button type="button" class="gray" onclick="app.soundOff()">
+		Sound Off
 	</button>
 	
 	<h2>Avakai Messages</h2>
@@ -114,7 +138,7 @@ This is the Avakai Remote-App for Smartphones
 	var app = {};
 	
 	//Holds the status of the RGB-LED
-	app.color = 0;
+	var senddata = new Uint8Array(3);
 	
 	//Holds the data received from Avakai via bluetooth
 	//btdata[0] stores status of RGB-LED
@@ -129,43 +153,85 @@ This is the Avakai Remote-App for Smartphones
 	//Initialize device.
 	app.device = null;
 	
-
+	
+	//send key
+	app.sendkey = function()
+	{
+		senddata[2] = 1;													       //switch bit 1 with EXOR
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.avakaiTapFeedback();
+		senddata[2] = 0;
+	};
+	
 	// Toggle red LED.
 	app.ledRed = function()
 	{
-		app.color ^= 1;													       //switch bit 1 with EXOR
-		app.device && app.device.writeDataArray(new Uint8Array([app.color]));  //send byte containing state of RGB-LED
+		senddata[0] ^= 1;													       //switch bit 1 with EXOR
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
 	};
 	
 	// Toggle green LED.
 	app.ledGreen = function()
 	{
-    app.avakaiTapFeedback();
-		app.color ^= 2;															//switch bit 2 with EXOR
-		app.device && app.device.writeDataArray(new Uint8Array([app.color]));  //send byte containing state of RGB-LED
+		senddata[0] ^= 2;															//switch bit 2 with EXOR
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
 	};
 	
 	// Toggle blue LED.
 	app.ledBlue = function()
 	{
-		app.color ^=4;															//switch bit 3 with EXOR
-		app.device && app.device.writeDataArray(new Uint8Array([app.color]));  //send byte containing state of RGB-LED
+		senddata[0] ^=4;															//switch bit 3 with EXOR
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
 	};
 
 	// Turn off LED.
 	app.ledOff = function()
 	{
-		app.color = 0;															
-		app.device && app.device.writeDataArray(new Uint8Array([0]));			//send byte containing state of RGB-LED
+		senddata[0] = 0;															
+		app.device && app.device.writeDataArray(senddata);			//send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
+	};
+	
+	// Send Sound1
+	app.sound1 = function()
+	{
+		senddata[1]=1;
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
 	};
 
-  // display the feedback on the figure when tapping
-  app.avakaiTapFeedback = function() {
-    $('.avakai-light').fadeOut(20).fadeIn(50);
-  }
-
-
-
+	// Send Sound2
+	app.sound2 = function()
+	{
+		senddata[1]=2;
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
+	};
+	
+	// Send Sound3
+	app.sound3 = function()
+	{
+		senddata[1]=3;
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
+	};
+	
+	// Send Sound Off
+	app.soundOff = function()
+	{
+		senddata[1]=0;
+		app.device && app.device.writeDataArray(senddata);  //send byte containing state of RGB-LED
+		app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
+	};
+	
+	// display the feedback on the figure when tapping
+	app.avakaiTapFeedback = function() {
+		$('.avakai-light').fadeIn(20).fadeOut(300);
+	}
+	
 	app.showMessage = function(info)
 	{
 		document.getElementById("info").innerHTML = info;						//handler for info-field
@@ -254,7 +320,7 @@ This is the Avakai Remote-App for Smartphones
                         '00002221-0000-1000-8000-00805f9b34fb',
                         function(data)
 							{
-                                app.showMessage('Byte received, Length: ' + data.byteLength);
+                                //app.showMessage('Byte received, Length: ' + data.byteLength);
                                 var dataArray = new Uint8Array(data);
                                 app.recvhandler(dataArray);										//calls handler for received bytes
                         },
@@ -314,8 +380,8 @@ This is the Avakai Remote-App for Smartphones
 	{
 	
 			
-			app.color = btdata[0];
-			app.Message("Avakai is now feeling " + colorname[app.color],0);
+			senddata[0] = btdata[0];
+			app.Message("Color is now: " + colorname[senddata[0]] + " / Sound: " + senddata[1], 0);
 			
 			var sensor = btdata[1];
               switch (sensor){

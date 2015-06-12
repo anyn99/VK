@@ -1,88 +1,91 @@
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\AvakaiDemo.ap_ \
- : D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-hdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-land-hdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-land-ldpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-land-mdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-land-xhdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-ldpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-mdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-port-hdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-port-ldpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-port-mdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-port-xhdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\drawable-xhdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\values\strings.xml \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\res\xml\config.xml \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-hdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-land-hdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-land-ldpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-land-mdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-land-xhdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-ldpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-mdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-port-hdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-port-ldpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-port-mdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-port-xhdpi\screen.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\_where-is-www.txt \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\cordova.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\cordova_plugins.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\css \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\img \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\index.html \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\css\index.css \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\img\logo.png \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\js\index.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\jquery \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\easyble \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\evothings.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\rfduinoble \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\ui \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\util \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\version-1.2.0 \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\easyble\easyble.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\rfduinoble\rfduinoble.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\ui\fastclick.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\ui\ui.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\evothings\util\util.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\jquery\jquery.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\libs\jquery\version.txt \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\com.evothings.ble \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\com.megster.cordova.rfduino \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\org.apache.cordova.device \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\com.evothings.ble\ble.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\com.megster.cordova.rfduino\www \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\com.megster.cordova.rfduino\www\rfduino.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\org.apache.cordova.device\www \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\plugins\org.apache.cordova.device\www\device.js \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\css \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\images \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\css\evothings-app.css \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.eot \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.ttf \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.woff \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.eot \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.ttf \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.woff \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.eot \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.ttf \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.woff \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\fonts\ProximaNova.css \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\images\arrow-left.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\images\arrow-right.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\images\logo.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\assets\www\ui\images\menu.svg \
-D:\Daniel\Dokumente\Arduino\VaiKai\AvakaiApp_02\platforms\android\ant-build\AndroidManifest.xml \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\AvakaiDemo.ap_ \
+ : D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-hdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-land-hdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-land-ldpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-land-mdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-land-xhdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-ldpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-mdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-port-hdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-port-ldpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-port-mdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-port-xhdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\drawable-xhdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\values\strings.xml \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\res\xml\config.xml \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-hdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-land-hdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-land-ldpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-land-mdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-land-xhdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-ldpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-mdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-port-hdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-port-ldpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-port-mdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-port-xhdpi\screen.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\_where-is-www.txt \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\AvakaiDemo-debug.apk \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\cordova.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\cordova_plugins.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\img \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\index.html \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\css\index.css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\img\logo.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\js\index.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\jquery \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\easyble \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\evothings.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\rfduinoble \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\ui \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\util \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\version-1.2.0 \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\easyble\easyble.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\rfduinoble\rfduinoble.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\ui\fastclick.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\ui\ui.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\evothings\util\util.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\jquery\jquery.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\libs\jquery\version.txt \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\com.evothings.ble \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\com.megster.cordova.rfduino \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\org.apache.cordova.device \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\com.evothings.ble\ble.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\com.megster.cordova.rfduino\www \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\com.megster.cordova.rfduino\www\rfduino.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\org.apache.cordova.device\www \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\plugins\org.apache.cordova.device\www\device.js \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\css\avakai.css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\css\evothings-app.css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.eot \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.ttf \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Black-webfont.woff \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.eot \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.ttf \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Bold-webfont.woff \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.eot \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.ttf \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova-Reg-webfont.woff \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\fonts\ProximaNova.css \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images\arrow-left.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images\arrow-right.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images\avakai.png \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images\logo.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\assets\www\ui\images\menu.svg \
+D:\Daniel\Dokumente\000 Projekte\VK\AvakaiApp_02-cordova-environment\platforms\android\ant-build\AndroidManifest.xml \
