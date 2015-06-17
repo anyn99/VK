@@ -1,0 +1,1 @@
+This is the Arduino code for sending hugs, used in former prototypes.

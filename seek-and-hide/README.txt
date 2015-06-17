@@ -1,0 +1,1 @@
+This is the Arduino code for seek and hide, used on former prototypes.
