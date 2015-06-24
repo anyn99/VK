@@ -1,0 +1,21 @@
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes.dex : \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$1.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$2.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$3.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$4.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$5.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$BluetoothStateReceiver.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE$GattHandler.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\evothings\BLE.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\megster\cordova\rfduino\Peripheral.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\megster\cordova\rfduino\RFduinoPlugin$1.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\megster\cordova\rfduino\RFduinoPlugin.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\BuildConfig.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\MusicSendTest.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\R$attr.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\R$drawable.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\R$string.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\R$xml.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\com\vaikai\testmusicsend\R.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\classes\org\apache\cordova\device\Device.class \
+D:\Daniel\Dokumente\Arduino\VaiKai\Music-Send\MusicTestApp\platforms\android\ant-build\dexedLibs\classes-61553fa7759119bb75410374bd45cbf2.jar \
