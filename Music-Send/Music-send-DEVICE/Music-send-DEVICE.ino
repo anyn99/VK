@@ -1,6 +1,3 @@
-
-
-#include <RFduinoBLE.h>
 #include <RFduinoGZLL.h>
 #include <Wire.h>
 #include <Seeed_QTouch.h>
@@ -16,7 +13,10 @@ int wav0 = 1;
 int wav1 = 0;
 
 device_t role = DEVICE0;
-  
+byte sendarray[20];     //array to send over GZLL to Device0
+byte ct = 1;
+
+char btdata[8];
 
 byte command;
 byte color = 7;  //color white for startup
@@ -25,16 +25,16 @@ byte touchstate;
 byte LSBhead;
 byte MSBhead;
 
+boolean colorchanged = false;
+int timerpressed;
+int longpress;
+int lastpress;
 
-
-
-int timer0 = millis();
-int timer1 = millis();
 
 
 void setup(){
-  // Serial.begin(9600);  //for debugging
-  Serial.println("Start");
+  //Serial.begin(9600);  //for debugging
+  Serial.println("Start DEVICE0");
   
   Wire.beginOnPins(3, 2);  // SCL on GPIO 3 and SDA on GPIO 2
   
@@ -42,7 +42,7 @@ void setup(){
   pinMode(RLEDPin, OUTPUT);
   pinMode(GLEDPin, OUTPUT);
   pinMode(BLEDPin, OUTPUT);
-  RGBchange(color);               //initialized with white color
+  RGBchange(0);               //initialized with led off
   
   
   pinMode(wav0, OUTPUT); 
@@ -51,13 +51,6 @@ void setup(){
   digitalWrite(wav1, HIGH);
   
 
-  
-  // configure the RFduino BLE properties
-  RFduinoBLE.advertisementData = "test";
-  RFduinoBLE.advertisementInterval = 1000;
-  RFduinoBLE.deviceName = "Avakai";
-  RFduinoBLE.txPowerLevel = +4;    //possible values:  (-20, -16, -12, -8, -4, 0, +4)
-  
   
   
   QTouch.reset(); //resets touch sensor
@@ -94,10 +87,9 @@ void setup(){
   QTouch.writeReg(45, 0); //key6
   delay(8);
   
+  RFduinoGZLL.txPowerLevel = 0;
+  RFduinoGZLL.begin(role); //start GZLL communication;
   
-  
-  //just for testing! remove for final functionality!
-  bt_on();
   
 }
 
@@ -106,133 +98,116 @@ void loop(){
     
    
    touchstate = QTouch.getState();
-    delay(8);
+     delay(8);
    
    MSBhead =  (QTouch.readReg(12)); //MSB value of Headsensor
      delay(8);
    LSBhead =  (QTouch.readReg(13));  //LSB value of Headsensor
-    delay(8);
+     delay(8);
    
-   /*
-   Serial.print("btdata[2]: ");
-   Serial.println(btdata[2], HEX);
-   Serial.print("Note     : ");
-   Serial.println(note, HEX);
-   delay(500);
-   */
    
-    if (0x10 & touchstate){      //if Head-Sensor is touched
+    if (0x10&touchstate){      //if Head-Sensor is touched
        
-       if (millis()-timer0>50)
-       {  
-         sound(note);
-         RGBchange(color);
-         delay(300);
-         RGBchange(0);
-       }
+       int pause = millis() - lastpress;
        
-       if (millis()-timer1>1500)
+       timerpressed = millis();
+       longpress = millis();
+       colorchanged = false;                   //reset state for loop
+       
+       RGBchange(color);        //led on
+       note = random(3) + 1;
+       sound(note);             //play note
+       
+       while (0x10 & QTouch.getState())   //while pressed
        {
-          color++;
-          if (color == 8) color = 1;
-          sound(note);
-          RGBchange(color);
-          delay(300);
-          RGBchange(0);
-          
-          if (color == 2) gzll_on();
-          if (color == 4) bt_on();
-          
-          timer1=millis();
-          
+         if (millis() - longpress > 1500) //changing color/mode
+         {         
+           
+           RGBchange(0); //switch off led
+           color++;
+           if (color == 8) color = 1;
+           colorchanged = true;
+           sound(note);
+           delay(300);
+           RGBchange(color);
+           delay(500);
+           RGBchange(0);
+           
+           switch (color) 
+           {
+             case 2:
+             
+             break;
+             
+             case 4:
+             
+             break;
+             
+             default:
+             
+             break;
+           }
+           
+           longpress = millis();
+         }
        }
- 
-      timer0=millis();
+       RGBchange(0);            //led off when touch released
+       
+       if (colorchanged == false)  //only do if color hasnt just been changed
+       {
+         
+         timerpressed = millis() - timerpressed; //calculate how long press was
+         //Serial.print("timerpressed: ");
+         //Serial.println(timerpressed);
+         
+         if (ct > 1)            //if not first note send pause since last press
+         {
+           sendarray[ct] = pause & 0xFF;
+           sendarray[ct+1] = pause >> 8;
+           ct = ct + 2;
+         }
+         
+         
+         sendarray[ct] = note;
+         sendarray[ct+1] = timerpressed & 0xFF;
+         sendarray[ct+2] = timerpressed >> 8;
+         ct = ct + 3;                            //count to next array variable
+         
+         
+         if (ct >= 17)
+         {
+           
+           sendarray[0] = 0x0F;   //mark as music message for GZLL handler to send array  
+
+           RFduinoGZLL.sendToHost((const char *)&sendarray, sizeof(sendarray));
+         
+           ct = 1;
+           sendarray[0] = 0; //reset first byte
+         }
+         
+         lastpress = millis();
+         
+       }
     }
-    else  timer1= millis();
-   
+ 
+     
 }
 
-void bt_on()
-{
-  RFduinoGZLL.end(); //end gazelle stack
-  delay(100);
-  RFduinoBLE.begin(); //start bluetooth stack
-}
-
-
-void gzll_on()
-{
-  RFduinoBLE.end(); //end bluetooth stack
-  delay(100);
-  RFduinoGZLL.begin(role); //start GZLL communication;  
-}
-
-
-/*
-void BTsendstatus(){
-  byte btdata[6] = {command,color,note,touchstate,LSBhead,MSBhead};
-  RFduinoBLE.send(btdata, 8);
-}
-*/
-
-void RFduinoBLE_onReceive(char *data, int len)
-{
-        byte *received = (byte*)data; //store received data in array
-        
-        
-        if (received[0]==0x1F)  //first received byte tells packet type, 01 means functionality with app
-        {
-          color = received[1]; //store color value
-          note = received[2]; //store sound value
-        
-          sound(note);
-          RGBchange(color);
-          delay(300);
-          RGBchange(0); 
-        }
-       
-       
-       
-        if (received[0]==0x0F) //first byte 0F means its a music message
-        {
-          int i = 1;
-          while (i<=len)
-          {
-            sound(received[i]);   //play note and light LED
-            i++;
-            RGBchange(color);     //blink
-   
-            delay( (received[i+1]<<8) + received[i]); //duration led on - combine values from LSB and MSB from data stream
-            Serial.print("Press duration: ");
-            Serial.println((received[i+1]<<8) + received[i]);
-            
-            RGBchange(0);
-            i=i+2;
-            delay( (received[i+1]<<8) + received[i]); //wait pause - combine values from LSB and MSB from data stream
-            
-            Serial.print("Pause: ");
-            Serial.println((received[i+1]<<8) + received[i]);
-            
-            i=i+2;        
-          }
-        }
-        
-        /*
-        Serial.print("data[0]: ");
-        Serial.println(data[0],HEX);
-        Serial.print("data[1]: ");
-        Serial.println(data[1],HEX);
-        */
-        
-}
 
 
 void RFduinoGZLL_onReceive(device_t device, int rssi, char *data, int len)
 {
-  byte *received = (byte*)data; //store received data in array
-  
-  
+    byte *received = (byte*)data; //store received data in array
+    
+    /*
+    for (int i=0;i<=len;i++)
+           {
+           Serial.print("received[");
+           Serial.print(i);
+           Serial.print("]: ");
+           Serial.println(received[i]);
+           } 
+    */
 }
 
 
