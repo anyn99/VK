@@ -26,8 +26,9 @@ byte touchstate;
 byte LSBhead;
 byte MSBhead;
 
-byte received[6];
-boolean recv= false;
+byte received[32];
+boolean recv = false;
+int lenrecv;
 
 int presstimer = millis();
 int longpress = millis();
@@ -43,14 +44,14 @@ void setup(){
   pinMode(RLEDPin, OUTPUT);
   pinMode(GLEDPin, OUTPUT);
   pinMode(BLEDPin, OUTPUT);
-  RGBchange(2);               //initialize led color
+  RGBchange(0);               //initialize led color
   
   
   pinMode(wav0, OUTPUT); 
   digitalWrite(wav0, HIGH);
   pinMode(wav1, OUTPUT);
   digitalWrite(wav1, HIGH);
-
+  
   
   QTouch.reset(); //resets touch sensor
   delay(250);
@@ -136,6 +137,44 @@ void loop()
     }
    else  longpress= millis();
    
+   
+   if (recv==true)
+        {
+           /*
+           for (int i=0;i<=(len);i++)
+           {
+           Serial.print("data[");
+           Serial.print(i);
+           Serial.print("]: ");
+           Serial.println(data[i]);
+           }
+           Serial.println(sizeof(data));
+           */
+           
+          int i = 1;
+          while (received[i] != 0)
+          {
+            RGBchange(color);     //LED on with current color
+            sound(received[i]);   //play note 
+            delay(300);
+            RGBchange(0);  //LED off
+            i++;
+            
+            if (received[i] != 0)
+            {
+            rtimer= millis();
+            while( (millis()-rtimer) < ((received[i+1]<<8) + received[i]) ); //wait pause - combine values from LSB and MSB from data stream,
+            Serial.print("Pause: ");
+            Serial.println((received[i+1]<<8) + received[i]);
+            i=i+2;
+            }
+
+          }   
+          
+          RFduinoGZLL.sendToDevice(DEVICE0, received[0]); //tell device we are done
+          recv = false; //reset state for new data over GZLL interrupt
+       }
+   
 }
 
 void RFduinoGZLL_onReceive(device_t device, int rssi, char *data, int len)
@@ -143,51 +182,14 @@ void RFduinoGZLL_onReceive(device_t device, int rssi, char *data, int len)
         //store received data in array//store received data in array
         if (data[0]==0x0F)
         {
-        for (int i=0;i<len;i++)
+          for (int i=0;i<len;i++)
            {
-           received[i]=data[i];
+             received[i] = data[i];
            }
-        recv = true;
+           recv = true;
         }  
         
-        if (recv==true)
-        {
-           /*
-           for (int i=0;i<=(sizeof(received)-1);i++)
-           {
-           Serial.print("received[");
-           Serial.print(i);
-           Serial.print("]: ");
-           Serial.println(received[i]);
-           }
-           Serial.println(sizeof(received));
-           */
-           
-          int i = 1;
-          while (i<sizeof(received))
-          {
-            rtimer= millis();
-            while( (millis()-rtimer) < ((received[i+1]<<8) + received[i]) ); //wait pause - combine values from LSB and MSB from data stream, i=4,9,15
-            Serial.print("Pause: ");
-            Serial.println((received[i+1]<<8) + received[i]);
-            i=i+2;
-            
-            RGBchange(color);     //LED on with current color
-            sound(received[i]);   //play note i=1,6,11,16
-            i++;
-            rtimer= millis();
-            while( (millis()-rtimer) < ((received[i+1]<<8) + received[i]) ); //duration led on - combine values from LSB and MSB from data stream, i=2,7,13,18;
-            Serial.print("Press duration: ");
-            Serial.println((received[i+1]<<8) + received[i]);
-            
-            RGBchange(0);  //LED off
-            i=i+2;
-
-          }   
-          
-          RFduinoGZLL.sendToDevice(DEVICE0, received[0]); //tell device we are done
-          recv = false; //reset state for new data over GZLL interrupt
-       }
+        
         
         
 }

@@ -31,8 +31,8 @@ void RGBchange(byte state)
 void sound (byte nr)
 {
     
-    //Serial.print("Playing Nr. ");
-    //Serial.println(nr);
+    Serial.print("Playing Nr. ");
+    Serial.println(nr);
     
     
     unsigned int STimer;

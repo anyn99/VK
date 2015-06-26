@@ -6,7 +6,7 @@
 
 #define HEAD_SENSOR_SENSITIVITY 35
 
-#define SEND_DELAY 500 //ms to wait before sending data to other Avakai, min:0 max:65535 (0-65.6 seconds)
+
 
 
 // Pin for the LED
@@ -20,13 +20,13 @@ int wav0 = 1;
 int wav1 = 0;
 
 device_t role = DEVICE0;
-byte sendarray[6];     //array to send over GZLL to Device0, right now only 6 bytes, since we only send 1 note
+byte sendarray[32];     //array to send over GZLL to Device0
 byte ct = 1;
 
 char btdata[8];
 
 byte command;
-byte color = 7;  //color white for startup
+byte color = 4;  //color white for startup
 byte note = 1;   //sound 1 for startup
 byte touchstate;
 byte LSBhead;
@@ -35,11 +35,12 @@ byte MSBhead;
 
 int presstimer;
 int longpress;
+int lastpress;
 int wait;
 
 boolean ble_on = false;
 boolean gzll_on = false;
-boolean keypress = false;
+
 
 void setup(){
   //Serial.begin(9600);  //for debugging
@@ -125,21 +126,50 @@ void loop(){
        
        if (millis()-presstimer>50)
        {  
+         int pause = millis() - lastpress;
          
          RGBchange(color);        //led on
          note = random(3) + 1;
          sound(note);             //play note
          delay(300);
          RGBchange(0);
-         keypress = true;
+         
+        if (color == 2)
+        {
+         
+         if (ct > 1) //if not first note
+         {
+         sendarray[ct] = pause & 0xFF; //pause since last call
+         sendarray[ct+1] = pause >> 8;
+         
+         Serial.print("Pause first byte ");
+         Serial.println(sendarray[ct]);
+         Serial.print("Pause second byte ");
+         Serial.println(sendarray[ct+1]);
+         
+         ct = ct + 2;
+         }
+         
+         sendarray[ct] = note;
+         Serial.print("Note ");
+         Serial.print(ct);
+         Serial.print(" is ");
+         Serial.println(note);
+         ct++;
+          
+         lastpress = millis();
+         
+         sendarray[0] = 0x0F; //mark as ready to send
+        }
+        
+        
        }
       
-       
-       
+
        if (millis() - longpress > 1500) //changing color/mode
        {         
-           color++;
-           if (color == 8) color = 1;
+           if (color == 4) color = 2;
+           else color = 4;
            sound(note);
            RGBchange(color);
            delay(300);
@@ -147,11 +177,11 @@ void loop(){
            
            longpress = millis();
        }
-       
+
        presstimer=millis();
     }
    else  longpress= millis();
-
+       
    bthandler(); //handles connection over Bluetooth
   
   
@@ -162,7 +192,7 @@ void bthandler()
 {
             if (color !=2 && ble_on == true) BLEsendstatus(); //if BLE is on, send status to app
 
-            if (color == 2 && gzll_on == true && keypress == true) SendToOther(); //if green and GZLL radio on, send keypress to other avakai
+            if (color == 2 && gzll_on == true && millis() - presstimer > 2000 && sendarray[0] == 0x0F) SendToOther(); //if green and GZLL radio on
             
             
            if (color == 2 && ble_on == true && gzll_on == false)
@@ -194,25 +224,22 @@ void SendToOther()
 {
         // send data over GZLL to other doll
          
-         sendarray[ct] = SEND_DELAY & 0xFF;
-         sendarray[ct+1] = SEND_DELAY >> 8; //pause before playing and blinking on other avakai
-         ct = ct + 2;
-         
-         
-         int timerpressed = 300;                              //fixing the length of led blink to 300ms, can be changed anytime
-         sendarray[ct] = note;
-         sendarray[ct+1] = timerpressed & 0xFF;
-         sendarray[ct+2] = timerpressed >> 8;
-         ct = ct + 3;                            //count to next array variable
-         
+         Serial.println("Sending!");
 
-         sendarray[0] = 0x0F;   //mark as music message for GZLL handler to send array  
-         
          RFduinoGZLL.sendToHost((const char *)&sendarray, sizeof(sendarray));
          
-         ct = 1;            //reset array counter
-         sendarray[0] = 0; //reset first byte
-         keypress = false; //reset keypress
+         for (int i=0;i<=sizeof(sendarray);i++)
+           {
+           Serial.print("sendarray[");
+           Serial.print(i);
+           Serial.print("]: ");
+           Serial.println(sendarray[i]);
+           } 
+         
+         ct = 1; //reset array counter
+         memset(sendarray, 0, sizeof(sendarray)); //resetting array
+         
+
 }
 
 
